@@ -1,9 +1,32 @@
+import React from "react";
+import Container from "../components/Container";
+import styled from "styled-components";
+import logo from "../assets/logo.png";
+
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+const Logo = styled.img`
+  width: 150px;
+  height: auto;
+`;
+
+const HomeContainer = styled.div`
+  background-color: white;
+`;
+
 function Home() {
   return (
-    <>
-      <p>test</p>
-    </>
-  )
+    <HomeContainer>
+      <LogoContainer>
+        <Logo src={logo} alt="Star Wars" />
+      </LogoContainer>
+      <Container />
+    </HomeContainer>
+  );
 }
 
 export default Home;

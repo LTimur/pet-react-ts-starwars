@@ -1,7 +1,7 @@
 export const baseUrl = "https://swapi.dev/api/";
 export const peopleUrl = `${baseUrl}/people`;
 
-export const getPeople = async () => {
+export const getPeople = async (): Promise<any> => {
   try {
     const response = await fetch(peopleUrl);
     if (response.ok) {
