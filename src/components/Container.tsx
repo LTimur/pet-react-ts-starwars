@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getPeople } from "../services/SwapiRequests";
+import { getCharacters } from "../services/SwapiRequests";
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -30,7 +30,7 @@ export function Container() {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    getPeople().then((data) => setPeople(data.results));
+    getCharacters().then((data) => setPeople(data.results));
   }, []);
 
   return (
