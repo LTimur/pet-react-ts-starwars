@@ -26,7 +26,7 @@ const Person = styled.p`
   text-align: center;
 `;
 
-function Container() {
+export function Container() {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
@@ -41,5 +41,3 @@ function Container() {
     </ContainerWrapper>
   );
 }
-
-export default Container;

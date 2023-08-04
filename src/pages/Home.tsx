@@ -1,5 +1,4 @@
-import React from "react";
-import Container from "../components/Container";
+import {Container} from "../components/Container";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 
@@ -18,7 +17,7 @@ const HomeContainer = styled.div`
   background-color: white;
 `;
 
-function Home() {
+export function Home() {
   return (
     <HomeContainer>
       <LogoContainer>
@@ -28,5 +27,3 @@ function Home() {
     </HomeContainer>
   );
 }
-
-export default Home;
