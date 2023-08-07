@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setCharacters } from "../features/CharactersSlice";
 import styled from "styled-components";
 import { getCharacters } from "../services/SwapiRequests";
 
@@ -27,16 +29,23 @@ const Person = styled.p`
 `;
 
 export function Container() {
-  const [people, setPeople] = useState([]);
+  const characters = useSelector((state) => state.characters);
+  const dispatch = useDispatch();
+  console.log(characters);
 
   useEffect(() => {
-    getCharacters().then((data) => setPeople(data.results));
+    getCharacters().then((data) => {
+      dispatch({
+        type: "characters/setCharacters",
+        payload: data.results,
+      });
+    });
   }, []);
 
   return (
     <ContainerWrapper>
-      {people.map((person) => (
-        <Person key={person.url}>{person.name}</Person>
+      {characters.map((character) => (
+        <Person key={character.url}>{character.name}</Person>
       ))}
     </ContainerWrapper>
   );
