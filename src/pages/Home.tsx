@@ -1,4 +1,5 @@
 import {Container} from "../components/Container";
+import {Header} from "../components/Header";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 
@@ -20,9 +21,7 @@ const HomeContainer = styled.div`
 export function Home() {
   return (
     <HomeContainer>
-      <LogoContainer>
-        <Logo src={logo} alt="Star Wars" />
-      </LogoContainer>
+      <Header></Header>
       <Container />
     </HomeContainer>
   );
