@@ -35,10 +35,7 @@ export function Container() {
 
   useEffect(() => {
     getCharacters().then((data) => {
-      dispatch({
-        type: "characters/setCharacters",
-        payload: data.results,
-      });
+      dispatch(setCharacters(data.results));
     });
   }, []);
 
