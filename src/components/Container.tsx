@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setCharacters } from "../features/CharactersSlice";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { getCharacters } from "../services/SwapiRequests";
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -29,20 +26,20 @@ const Person = styled.p`
 `;
 
 export function Container() {
+  const planets = useSelector((state) => state.planets);
+  const films = useSelector((state) => state.films);
   const characters = useSelector((state) => state.characters);
-  const dispatch = useDispatch();
-  console.log(characters);
-
-  useEffect(() => {
-    getCharacters().then((data) => {
-      dispatch(setCharacters(data.results));
-    });
-  }, []);
 
   return (
     <ContainerWrapper>
-      {characters.map((character) => (
-        <Person key={character.url}>{character.name}</Person>
+      {planets.map((element) => (
+        <Person key={element.url}>{element.name}</Person>
+      ))}
+      {films.map((element) => (
+        <Person key={element.url}>{element.title}</Person>
+      ))}
+      {characters.map((element) => (
+        <Person key={element.url}>{element.name}</Person>
       ))}
     </ContainerWrapper>
   );

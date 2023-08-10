@@ -1,5 +1,12 @@
 import styled from "styled-components";
 import logo from "../assets/logo.png";
+import { getCharacters, getFilms, getPlanets } from "../services/SwapiRequests";
+
+import { setCharacters } from "../features/CharactersSlice";
+import { setFilms } from "../features/FilmsSlice";
+import { setPlanets } from "../features/PlanetsSlice";
+
+import { useDispatch } from "react-redux";
 
 const LogoContainer = styled.div`
   display: flex;
@@ -16,7 +23,7 @@ const Menu = styled.div`
   display: flex;
   justify-content: center;
   margin: 20px 0;
-  
+
   button {
     margin: 0 10px;
     padding: 10px 20px;
@@ -45,17 +52,37 @@ const Input = styled.input`
 `;
 
 export function Header() {
+  const dispatch = useDispatch();
+
+  const handleCharactersClick = () => {
+    getCharacters().then((data) => {
+      dispatch(setCharacters(data.results));
+    });
+  };
+
+  const handleFilmsClick = () => {
+    getFilms().then((data) => {
+      dispatch(setFilms(data.results));
+    });
+  };
+
+  const handlePlanetsClick = () => {
+    getPlanets().then((data) => {
+      dispatch(setPlanets(data.results));
+    });
+  };
+
   return (
     <div>
       <LogoContainer>
         <Logo src={logo} alt="Star Wars" />
       </LogoContainer>
       <Menu>
-        <button>Films</button>
-        <button>Planets</button>
-        <button>People</button>
+        <button onClick={handleCharactersClick}>People</button>
+        <button onClick={handleFilmsClick}>Films</button>
+        <button onClick={handlePlanetsClick}>Planets</button>
       </Menu>
-      <Input/>
+      <Input />
     </div>
   );
 }
