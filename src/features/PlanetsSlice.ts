@@ -18,15 +18,15 @@ type StarWarsPlanet = {
 
 const initialState: StarWarsPlanet[] = [];
 
-const charactersSlice = createSlice({
-  name: "films",
+const planetsSlice = createSlice({
+  name: "planets",
   initialState,
   reducers: {
-    setCharacters(state, action: PayloadAction<StarWarsPlanet[]>) {
+    setPlanets(state, action: PayloadAction<StarWarsPlanet[]>) {
       return action.payload;
     },
   },
 });
 
-export const { setCharacters } = charactersSlice.actions;
-export const charactersReducer = charactersSlice.reducer;
+export const { setPlanets } = planetsSlice.actions;
+export const planetsReducer = planetsSlice.reducer;
