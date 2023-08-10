@@ -30,17 +30,23 @@ export function Container() {
   const films = useSelector((state) => state.films);
   const characters = useSelector((state) => state.characters);
 
-  return (
-    <ContainerWrapper>
-      {planets.map((element) => (
-        <Person key={element.url}>{element.name}</Person>
-      ))}
-      {films.map((element) => (
-        <Person key={element.url}>{element.title}</Person>
-      ))}
-      {characters.map((element) => (
-        <Person key={element.url}>{element.name}</Person>
-      ))}
-    </ContainerWrapper>
-  );
+  let renderContent;
+
+  if (planets.length > 0) {
+    renderContent = planets.map((element) => (
+      <Person key={element.url}>{element.name}</Person>
+    ));
+  } else if (films.length > 0) {
+    renderContent = films.map((element) => (
+      <Person key={element.url}>{element.title}</Person>
+    ));
+  } else if (characters.length > 0) {
+    renderContent = characters.map((element) => (
+      <Person key={element.url}>{element.name}</Person>
+    ));
+  } else {
+    renderContent = <p>Let's explore the universe of Star Wars!</p>;
+  }
+
+  return <ContainerWrapper>{renderContent}</ContainerWrapper>;
 }
