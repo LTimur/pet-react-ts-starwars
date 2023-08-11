@@ -62,6 +62,9 @@ export function Container() {
   const films = useSelector((state) => state.films);
   const characters = useSelector((state) => state.characters);
   const selectedCharacter = useSelector((state) => state.character);
+  console.log(planets)
+  console.log(films)
+  console.log(characters)
   console.log(selectedCharacter)
   const dispatch = useDispatch();
 

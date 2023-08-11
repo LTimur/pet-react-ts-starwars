@@ -7,7 +7,6 @@ const Character = styled.div`
   background-color: #fff;
   padding: 10px;
   border-radius: 8px;
-  font-weight: bold;
   font-size: 18px;
 `;
 
@@ -15,14 +14,12 @@ export function CharacterCard({character}) {
   return (
   <Character>
     <h2>{character.name}</h2>
-    <p>{character.name}</p>
-    <p>{character.height}</p>
-    <p>{character.mass}</p>
-    <p>{character.hair_color}</p>
-    <p>{character.skin_color}</p>
-    <p>{character.eye_color}</p>
-    <p>{character.birth_year}</p>
-    <p>{character.gender}</p>
-    <p>{character.homeworld}</p>
+    <p>Gender: {character.gender}</p>
+    <p>Birth year: {character.birth_year}</p>
+    <p>Height: {character.height}</p>
+    <p>Mass: {character.mass}</p>
+    <p>Hair color: {character.hair_color}</p>
+    <p>Skin color: {character.skin_color}</p>
+    <p>Skin color: {character.eye_color}</p>
   </Character>);
 }
