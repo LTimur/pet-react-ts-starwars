@@ -1,6 +1,8 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { CharacterCard } from "./CharacterCard";
+import { setCharacter } from "../features/CharacterSlice";
+
 const ContainerWrapper = styled.div`
   margin: 0 auto;
   width: 70%;
@@ -25,28 +27,64 @@ const Person = styled.p`
   text-align: center;
 `;
 
+const PlanetList = ({ planets, handleCharacterClick }) => (
+  <>
+    {planets.map((element) => (
+      <Person key={element.url} onClick={() => handleCharacterClick(element)}>
+        {element.name}
+      </Person>
+    ))}
+  </>
+);
+
+const FilmList = ({ films, handleCharacterClick }) => (
+  <>
+    {films.map((element) => (
+      <Person key={element.url} onClick={() => handleCharacterClick(element)}>
+        {element.title}
+      </Person>
+    ))}
+  </>
+);
+
+const CharacterList = ({ characters, handleCharacterClick }) => (
+  <>
+    {characters.map((element) => (
+      <Person key={element.url} onClick={() => handleCharacterClick(element)}>
+        {element.name}
+      </Person>
+    ))}
+  </>
+);
+
 export function Container() {
   const planets = useSelector((state) => state.planets);
   const films = useSelector((state) => state.films);
   const characters = useSelector((state) => state.characters);
+  const selectedCharacter = useSelector((state) => state.character);
+  console.log(selectedCharacter)
+  const dispatch = useDispatch();
 
-  let renderContent;
+  const handleCharacterClick = (character) => {
+    dispatch(setCharacter(character));
+  };
 
-  if (planets.length > 0) {
-    renderContent = planets.map((element) => (
-      <Person key={element.url}>{element.name}</Person>
-    ));
+  let content;
+  if (Object.prototype.hasOwnProperty.call(selectedCharacter, 'name')) {
+    content = <CharacterCard character={selectedCharacter} />;
+  } else if (planets.length > 0) {
+    content = <PlanetList planets={planets} handleCharacterClick={handleCharacterClick} />;
   } else if (films.length > 0) {
-    renderContent = films.map((element) => (
-      <Person key={element.url}>{element.title}</Person>
-    ));
+    content = <FilmList films={films} handleCharacterClick={handleCharacterClick} />;
   } else if (characters.length > 0) {
-    renderContent = characters.map((element) => (
-      <Person key={element.url}>{element.name}</Person>
-    ));
+    content = <CharacterList characters={characters} handleCharacterClick={handleCharacterClick} />;
   } else {
-    renderContent = <p>Let's explore the universe of Star Wars!</p>;
+    content = "Let's explore the Star Wars universe!";
   }
 
-  return <ContainerWrapper>{renderContent}</ContainerWrapper>;
+  return (
+    <ContainerWrapper>
+      {content}
+    </ContainerWrapper>
+  );
 }
