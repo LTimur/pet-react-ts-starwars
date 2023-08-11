@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { CharacterCard } from "./CharacterCard";
-
 const ContainerWrapper = styled.div`
   margin: 0 auto;
   width: 70%;
