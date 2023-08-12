@@ -10,8 +10,6 @@ type StarWarsFilm = {
   producer: string;
   opening_crawl: string;
   planets: [];
-  gender: string;
-  homeworld: string;
   films: [];
   
 };
