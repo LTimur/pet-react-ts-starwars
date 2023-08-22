@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 type StarWarsPlanet = {
   url: string;
@@ -13,13 +13,13 @@ type StarWarsPlanet = {
   gravity: string;
   surface_water: number;
   films: [];
-  
+
 };
 
 const initialState: StarWarsPlanet[] = [];
 
 const planetsSlice = createSlice({
-  name: "planets",
+  name: 'planets',
   initialState,
   reducers: {
     setPlanets(state, action: PayloadAction<StarWarsPlanet[]>) {

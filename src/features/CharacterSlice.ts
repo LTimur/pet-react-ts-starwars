@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 type StarWarsCharacter = {
   name: string;
@@ -18,7 +18,7 @@ type StarWarsCharacter = {
 const initialState: StarWarsCharacter = [];
 
 const characterSlice = createSlice({
-  name: "character",
+  name: 'character',
   initialState,
   reducers: {
     setCharacter(state, action: PayloadAction<StarWarsCharacter>) {

@@ -1,12 +1,11 @@
-import styled from "styled-components";
-import logo from "../assets/logo.png";
-import { getCharacters, getFilms, getPlanets } from "../services/SwapiRequests";
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import logo from '../assets/logo.png';
+import { getCharacters, getFilms, getPlanets } from '../services/SwapiRequests';
 
-import { setCharacters } from "../features/CharactersSlice";
-import { setFilms } from "../features/FilmsSlice";
-import { setPlanets } from "../features/PlanetsSlice";
-
-import { useDispatch } from "react-redux";
+import { setCharacters } from '../features/CharactersSlice';
+import { setFilms } from '../features/FilmsSlice';
+import { setPlanets } from '../features/PlanetsSlice';
 
 const LogoContainer = styled.div`
   display: flex;

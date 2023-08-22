@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 type StarWarsFilm = {
   url: string;
@@ -11,13 +11,13 @@ type StarWarsFilm = {
   opening_crawl: string;
   planets: [];
   films: [];
-  
+
 };
 
 const initialState: StarWarsFilm[] = [];
 
 const filmsSlice = createSlice({
-  name: "films",
+  name: 'films',
   initialState,
   reducers: {
     setFilms(state, action: PayloadAction<StarWarsFilm[]>) {

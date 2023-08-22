@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 type StarWarsCharacter = {
   name: string;
@@ -13,13 +13,13 @@ type StarWarsCharacter = {
   gender: string;
   homeworld: string;
   films: [];
-  
+
 };
 
 const initialState: StarWarsCharacter[] = [];
 
 const charactersSlice = createSlice({
-  name: "characters",
+  name: 'characters',
   initialState,
   reducers: {
     setCharacters(state, action: PayloadAction<StarWarsCharacter[]>) {

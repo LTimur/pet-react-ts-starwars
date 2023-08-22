@@ -1,7 +1,7 @@
-import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
-import { CharacterCard } from "./CharacterCard";
-import { setCharacter } from "../features/CharacterSlice";
+import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { CharacterCard } from './CharacterCard';
+import { setCharacter } from '../features/CharacterSlice';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -27,45 +27,51 @@ const Person = styled.p`
   text-align: center;
 `;
 
-const PlanetList = ({ planets, handleCharacterClick }) => (
-  <>
-    {planets.map((element) => (
-      <Person key={element.url} onClick={() => handleCharacterClick(element)}>
-        {element.name}
-      </Person>
-    ))}
-  </>
-);
+function PlanetList({ planets, handleCharacterClick }) {
+  return (
+    <>
+      {planets.map((element) => (
+        <Person key={element.url} onClick={() => handleCharacterClick(element)}>
+          {element.name}
+        </Person>
+      ))}
+    </>
+  );
+}
 
-const FilmList = ({ films, handleCharacterClick }) => (
-  <>
-    {films.map((element) => (
-      <Person key={element.url} onClick={() => handleCharacterClick(element)}>
-        {element.title}
-      </Person>
-    ))}
-  </>
-);
+function FilmList({ films, handleCharacterClick }) {
+  return (
+    <>
+      {films.map((element) => (
+        <Person key={element.url} onClick={() => handleCharacterClick(element)}>
+          {element.title}
+        </Person>
+      ))}
+    </>
+  );
+}
 
-const CharacterList = ({ characters, handleCharacterClick }) => (
-  <>
-    {characters.map((element) => (
-      <Person key={element.url} onClick={() => handleCharacterClick(element)}>
-        {element.name}
-      </Person>
-    ))}
-  </>
-);
+function CharacterList({ characters, handleCharacterClick }) {
+  return (
+    <>
+      {characters.map((element) => (
+        <Person key={element.url} onClick={() => handleCharacterClick(element)}>
+          {element.name}
+        </Person>
+      ))}
+    </>
+  );
+}
 
 export function Container() {
   const planets = useSelector((state) => state.planets);
   const films = useSelector((state) => state.films);
   const characters = useSelector((state) => state.characters);
   const selectedCharacter = useSelector((state) => state.character);
-  console.log(planets)
-  console.log(films)
-  console.log(characters)
-  console.log(selectedCharacter)
+  console.log(planets);
+  console.log(films);
+  console.log(characters);
+  console.log(selectedCharacter);
   const dispatch = useDispatch();
 
   const handleCharacterClick = (character) => {

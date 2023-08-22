@@ -1,16 +1,16 @@
-import {Container} from "../components/Container";
-import {Header} from "../components/Header";
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Container } from '../components/Container';
+import { Header } from '../components/Header';
 
-const HomeContainer = styled.div`
+const HomeWrapper = styled.div`
   background-color: white;
 `;
 
 export function Home() {
   return (
-    <HomeContainer>
-      <Header></Header>
+    <HomeWrapper>
+      <Header />
       <Container />
-    </HomeContainer>
+    </HomeWrapper>
   );
 }
