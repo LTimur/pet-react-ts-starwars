@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Planet = styled.div`
+const StyledPlanet = styled.div`
   margin: 0 auto;
   width: 70%;
   color: #000;
@@ -12,7 +12,7 @@ const Planet = styled.div`
 
 export function PlanetCard({ planet }) {
   return (
-    <Planet>
+    <StyledPlanet>
       <h2>{planet.name}</h2>
       <p>
         Climate:
@@ -46,6 +46,6 @@ export function PlanetCard({ planet }) {
         Surface water:
         {planet.surface_water}
       </p>
-    </Planet>
+    </StyledPlanet>
   );
 }

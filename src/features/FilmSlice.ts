@@ -1,26 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { Film } from '../entities/Film';
 
-type StarWarsFilm = {
-  url: string;
-  episode_id: number;
-  title: string;
-  release_date: string;
-  director: string;
-  producer: string;
-  opening_crawl: string;
-  planets: [];
-  films: [];
-
+type FilmProps = {
+  film: Film
 };
 
-const initialState: StarWarsFilm = [];
+const initialState: FilmProps = { film: {} as Film };
 
 const filmSlice = createSlice({
   name: 'film',
   initialState,
   reducers: {
-    setFilm(state, action: PayloadAction<StarWarsFilm>) {
+    setFilm(state, action: PayloadAction<FilmProps>) {
       return action.payload;
     },
   },

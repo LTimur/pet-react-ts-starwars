@@ -1,28 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { Planet } from '../entities/Planet';
 
-type StarWarsPlanet = {
-  url: string;
-  name: string;
-  climate: string;
-  terrain: string;
-  population: string;
-  diameter: string;
-  orbital_period: string;
-  rotation_period: string;
-  gravity: string;
-  surface_water: number;
-  films: [];
-
+type PlanetProps = {
+  planet: Planet
 };
 
-const initialState: StarWarsPlanet = [];
+const initialState: PlanetProps = { planet: {} as Planet };
 
 const planetSlice = createSlice({
   name: 'planet',
   initialState,
   reducers: {
-    setPlanet(state, action: PayloadAction<StarWarsPlanet>) {
+    setPlanet(state, action: PayloadAction<PlanetProps>) {
       return action.payload;
     },
   },
