@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { getFilms } from '../services/SwapiRequests';
 import { setFilms } from '../features/FilmsSlice';
+import { colors, fonts } from '../variables';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -26,6 +27,11 @@ const Film = styled.p`
   font-weight: bold;
   font-size: 18px;
   text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${colors.LightAccentColor};
+  }
 `;
 
 function FilmsList({ films, handleFilmClick }) {

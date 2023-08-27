@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { getCharacters } from '../services/SwapiRequests';
 import { setCharacters } from '../features/CharactersSlice';
+import { colors, fonts } from '../variables';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -10,8 +11,8 @@ const ContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #000;
-  color: #fff;
+  background-color: ${colors.FontColor};
+  color: ${colors.DarkBackgroundColor};
   padding: 20px;
   border-radius: 8px;
 `;
@@ -19,13 +20,18 @@ const ContainerWrapper = styled.div`
 const Character = styled.p`
   margin: 0 auto;
   width: 70%;
-  color: #000;
-  background-color: #fff;
+  color: ${colors.FontColor};
+  background-color: ${colors.LightColor};
   padding: 10px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: ${fonts.PrimaryFontSize};
   text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${colors.LightAccentColor};
+  }
 `;
 
 function CharactersList({ characters, handleCharacterClick }) {

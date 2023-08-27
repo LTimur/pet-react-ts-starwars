@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { getPlanets } from '../services/SwapiRequests';
 import { setPlanets } from '../features/PlanetsSlice';
+import { colors, fonts } from '../variables';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -26,6 +27,11 @@ const Planet = styled.p`
   font-weight: bold;
   font-size: 18px;
   text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${colors.LightAccentColor};
+  }
 `;
 
 function PlanetList({ planets, handleCharacterClick }) {

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { colors, fonts } from '../variables';
 
 const Character = styled.div`
   margin: 0 auto;
   width: 70%;
-  color: #000;
-  background-color: #fff;
+  color: ${colors.FontColor};
+  background-color: ${colors.LightColor};
   padding: 10px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: ${fonts.PrimaryFontSize};
 `;
 
 export function CharacterCard({ character }) {
