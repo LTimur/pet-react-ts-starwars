@@ -1,17 +1,13 @@
-import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
+import { Outlet } from 'react-router-dom';
 import { Header } from './Header';
 import { store } from '../store';
 
-type MainLayoutProps = {
-  children: ReactNode;
-};
-
-export function MainLayout({ children }: MainLayoutProps) {
+export function MainLayout() {
   return (
     <Provider store={store}>
       <Header />
-      <main>{children}</main>
+      <Outlet />
     </Provider>
   );
 }

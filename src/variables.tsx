@@ -9,4 +9,5 @@ export const colors = {
 
 export const fonts = {
   PrimaryFontSize: '18px',
+  SecondaryFontSize: '18px',
 };

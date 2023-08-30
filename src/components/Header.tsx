@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import { getCharacters, getFilms, getPlanets } from '../services/SwapiRequests';
-
-import { setCharacters } from '../features/CharactersSlice';
-import { setFilms } from '../features/FilmsSlice';
-import { setPlanets } from '../features/PlanetsSlice';
+import { colors, fonts } from '../variables';
 
 const LogoContainer = styled.div`
   display: flex;
@@ -22,16 +18,22 @@ const Menu = styled.div`
   display: flex;
   justify-content: center;
   margin: 20px 0;
+`;
 
-  button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #000;
-    color: #fff;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: ${fonts.SecondaryFontSize};
+  cursor: pointer;
+  background-color: ${colors.FontColor};
+  color:${colors.LightColor};
+
+  &:hover {
+    color: ${colors.LightAccentColor};
   }
 `;
 
@@ -40,46 +42,25 @@ const Input = styled.input`
   width: 70%;
   margin: 10px auto;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: ${fonts.SecondaryFontSize};
   outline: none;
 
   &:focus {
-    border: 2px solid black;
+    border: 2px solid ${colors.FontColor};
   }
 `;
 
 export function Header() {
-  const dispatch = useDispatch();
-
-  const handleCharactersClick = () => {
-    getCharacters().then((data) => {
-      dispatch(setCharacters(data.results));
-    });
-  };
-
-  const handleFilmsClick = () => {
-    getFilms().then((data) => {
-      dispatch(setFilms(data.results));
-    });
-  };
-
-  const handlePlanetsClick = () => {
-    getPlanets().then((data) => {
-      dispatch(setPlanets(data.results));
-    });
-  };
-
   return (
     <div>
       <LogoContainer>
         <Logo src={logo} alt="Star Wars" />
       </LogoContainer>
       <Menu>
-        <button onClick={handleCharactersClick}>People</button>
-        <button onClick={handleFilmsClick}>Films</button>
-        <button onClick={handlePlanetsClick}>Planets</button>
+        <StyledLink to="/films">Films</StyledLink>
+        <StyledLink to="/planets">Planets</StyledLink>
+        <StyledLink to="/characters">Characters</StyledLink>
       </Menu>
       <Input />
     </div>

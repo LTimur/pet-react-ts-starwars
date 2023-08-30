@@ -11,8 +11,8 @@ const ContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #000;
-  color: #fff;
+  background-color: ${colors.FontColor};
+  color: ${colors.DarkBackgroundColor};
   padding: 20px;
   border-radius: 8px;
 `;
@@ -20,12 +20,12 @@ const ContainerWrapper = styled.div`
 const Film = styled.p`
   margin: 0 auto;
   width: 70%;
-  color: #000;
-  background-color: #fff;
+  color: ${colors.FontColor};
+  background-color: ${colors.LightColor};
   padding: 10px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: ${fonts.PrimaryFontSize};
   text-align: center;
 
   &:hover {
