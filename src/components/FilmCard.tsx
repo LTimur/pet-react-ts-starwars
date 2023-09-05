@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors, fonts } from '../variables';
+import { useParams } from 'react-router-dom';
 
 const Film = styled.div`
   margin: 0 auto;
@@ -11,10 +12,12 @@ const Film = styled.div`
   font-size: ${fonts.PrimaryFontSize};
 `;
 
-export function FilmCard({ film }) {
+export function FilmCard() {
+  const {id} = useParams()
   return (
     <Film>
-      <h2>{film.title}</h2>
+      {id}
+      {/* <h2>{film.title}</h2>
       <p>{film.opening_crawl}</p>
       <p>
         Release date:
@@ -39,7 +42,7 @@ export function FilmCard({ film }) {
       <p>
         Skin color:
         {film.eye_color}
-      </p>
+      </p> */}
     </Film>
   );
 }

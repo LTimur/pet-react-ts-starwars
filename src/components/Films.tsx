@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getFilms } from '../services/SwapiRequests';
 import { setFilms } from '../features/FilmsSlice';
 import { colors, fonts } from '../variables';
@@ -17,7 +18,7 @@ const ContainerWrapper = styled.div`
   border-radius: 8px;
 `;
 
-const Film = styled.p`
+const Film = styled(Link)`
   margin: 0 auto;
   width: 70%;
   color: ${colors.FontColor};
@@ -38,7 +39,7 @@ function FilmsList({ films, handleFilmClick }) {
   return (
     <>
       {films.map((element) => (
-        <Film key={element.url} onClick={() => handleFilmClick(element)}>
+        <Film key={element.url} to={`/films/${element.url.split('films/')[1].split('/')[0]}`}>
           {element.title}
         </Film>
       ))}
@@ -60,7 +61,7 @@ export function Films() {
       <FilmsList
         films={films}
         handleFilmClick={() => {
-          console.log('ok');
+          dispatch(setFilms(film))
         }}
       />
     </ContainerWrapper>
