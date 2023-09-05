@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { colors, fonts } from '../variables';
 
@@ -20,7 +20,7 @@ const Menu = styled.div`
   margin: 20px 0;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: inherit;
   margin: 0 10px;
@@ -34,6 +34,11 @@ const StyledLink = styled(Link)`
 
   &:hover {
     color: ${colors.LightAccentColor};
+  }
+
+  &.active-link {
+    background-color: ${colors.DarkAccentColor};
+    color: ${colors.LightColor};
   }
 `;
 
@@ -51,6 +56,8 @@ const Input = styled.input`
   }
 `;
 
+const setActive = ({isActive}) => (isActive ? 'active-link' : '');
+
 export function Header() {
   return (
     <div>
@@ -58,9 +65,9 @@ export function Header() {
         <Logo src={logo} alt="Star Wars" />
       </LogoContainer>
       <Menu>
-        <StyledLink to="/films">Films</StyledLink>
-        <StyledLink to="/planets">Planets</StyledLink>
-        <StyledLink to="/characters">Characters</StyledLink>
+        <StyledLink className={setActive} to="/films">Films</StyledLink>
+        <StyledLink className={setActive} to="/planets">Planets</StyledLink>
+        <StyledLink className={setActive} to="/characters">Characters</StyledLink>
       </Menu>
       <Input />
     </div>
