@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getPlanets } from '../services/SwapiRequests';
 import { setPlanets } from '../features/PlanetsSlice';
 import { colors, fonts } from '../variables';
@@ -17,7 +18,7 @@ const ContainerWrapper = styled.div`
   border-radius: 8px;
 `;
 
-const Planet = styled.p`
+const Planet = styled(Link)`
   margin: 0 auto;
   width: 70%;
   color: ${colors.FontColor};
@@ -27,18 +28,18 @@ const Planet = styled.p`
   font-weight: bold;
   font-size: ${fonts.PrimaryFontSize};
   text-align: center;
-
+  text-decoration: none;
   &:hover {
     cursor: pointer;
     background-color: ${colors.LightAccentColor};
   }
 `;
 
-function PlanetList({ planets, handleCharacterClick }) {
+function PlanetList({ planets }) {
   return (
     <>
       {planets.map((element) => (
-        <Planet key={element.url} onClick={() => handlePlanetClick(element)}>
+        <Planet key={element.url} to={`/planets/${element.url.split('planets/')[1].split('/')[0]}`}>
           {element.name}
         </Planet>
       ))}

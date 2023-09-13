@@ -16,6 +16,7 @@ const ContainerWrapper = styled.div`
   color: ${colors.DarkBackgroundColor};
   padding: 20px;
   border-radius: 8px;
+  
 `;
 
 const Film = styled(Link)`
@@ -28,7 +29,7 @@ const Film = styled(Link)`
   font-weight: bold;
   font-size: ${fonts.PrimaryFontSize};
   text-align: center;
-
+  text-decoration: none;
   &:hover {
     cursor: pointer;
     background-color: ${colors.LightAccentColor};

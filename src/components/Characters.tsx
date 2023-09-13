@@ -27,6 +27,7 @@ const Character = styled.p`
   font-weight: bold;
   font-size: ${fonts.PrimaryFontSize};
   text-align: center;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
