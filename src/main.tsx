@@ -6,6 +6,7 @@ import { PlanetCard } from './features/Planet/PlanetUi.tsx';
 import { Films } from './components/Films.tsx';
 import { FilmCard } from './features/Film/FilmUi.tsx';
 import { Characters } from './components/Characters.tsx';
+import { CharacterCard } from './features/Character/CharacterUi.tsx';
 import { MainLayout } from './components/MainLayout.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/films" element={<Films />} />
           <Route path="/films/:id" element={<FilmCard />} />
           <Route path="/characters" element={<Characters />} />
+          <Route path="/characters/:id" element={<CharacterCard />} />
           <Route path="/planets" element={<Planets />} />
           <Route path="/planets/:id" element={<PlanetCard />} />
         </Route>
