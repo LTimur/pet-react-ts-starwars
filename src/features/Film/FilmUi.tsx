@@ -34,16 +34,13 @@ export function FilmCard() {
       <h2>{data.title}</h2>
       <p>{data.opening_crawl}</p>
       <p>
-        Release date:
-        {data.release_date}
+        Release date: {data.release_date}
       </p>
       <p>
-        Director:
-        {data.director}
+        Director: {data.director}
       </p>
       <p>
-        Producer:
-        {data.producer}
+        Producer: {data.producer}
       </p>
     </StyledFilm>
   );

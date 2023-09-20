@@ -47,8 +47,15 @@ function PlanetList({ planets }) {
   );
 }
 
+const selectPlanetsByQuery = (state) => {
+  const query = state.query.query.toLowerCase();
+  return state.planets.filter((planet) => planet.name.toLowerCase().includes(query));
+};
+
 export function Planets() {
-  const planets = useSelector((state) => state.planets);
+  const query = useSelector((state) => state.query);
+  const planets = useSelector(selectPlanetsByQuery);
+  
   const dispatch = useDispatch();
   useEffect(() => {
     getPlanets().then((data) => {

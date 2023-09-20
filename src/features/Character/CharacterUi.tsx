@@ -33,32 +33,25 @@ export function CharacterCard() {
     <StyledCharacter>
       <h2>{data.name}</h2>
       <p>
-        Gender:
-        {data.gender}
+        Gender: {data.gender}
       </p>
       <p>
-        Birth year:
-        {data.birth_year}
+        Birth year: {data.birth_year}
       </p>
       <p>
-        Height:
-        {data.height}
+        Height: {data.height}
       </p>
       <p>
-        Mass:
-        {data.mass}
+        Mass: {data.mass}
       </p>
       <p>
-        Hair color:
-        {data.hair_color}
+        Hair color: {data.hair_color}
       </p>
       <p>
-        Skin color:
-        {data.skin_color}
+        Skin color: {data.skin_color}
       </p>
       <p>
-        Skin color:
-        {data.eye_color}
+        Eye color: {data.eye_color}
       </p>
     </StyledCharacter>
   );

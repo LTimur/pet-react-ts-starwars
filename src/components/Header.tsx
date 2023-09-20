@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import logo from '../assets/logo.png';
 import { colors, fonts } from '../variables';
+import { setSearchQuery } from '../features/SearchSlice';
 
 const LogoContainer = styled.div`
   display: flex;
@@ -30,7 +32,7 @@ const StyledLink = styled(NavLink)`
   font-size: ${fonts.SecondaryFontSize};
   cursor: pointer;
   background-color: ${colors.FontColor};
-  color:${colors.LightColor};
+  color: ${colors.LightColor};
 
   &:hover {
     color: ${colors.LightAccentColor};
@@ -56,20 +58,37 @@ const Input = styled.input`
   }
 `;
 
-const setActive = ({isActive}) => (isActive ? 'active-link' : '');
+const setActive = ({ isActive }) => (isActive ? 'active-link' : '');
 
 export function Header() {
+  const query = useSelector((state) => state.query);
+  console.log(query)
+  const dispatch = useDispatch();
+  const handleSearchChange = (e) => {
+    dispatch(setSearchQuery(e.target.value));
+  };
+
   return (
     <div>
       <LogoContainer>
         <Logo src={logo} alt="Star Wars" />
       </LogoContainer>
       <Menu>
-        <StyledLink className={setActive} to="/films">Films</StyledLink>
-        <StyledLink className={setActive} to="/planets">Planets</StyledLink>
-        <StyledLink className={setActive} to="/characters">Characters</StyledLink>
+        <StyledLink className={setActive} to="/films">
+          Films
+        </StyledLink>
+        <StyledLink className={setActive} to="/planets">
+          Planets
+        </StyledLink>
+        <StyledLink className={setActive} to="/characters">
+          Characters
+        </StyledLink>
       </Menu>
-      <Input />
+      <Input
+        type="text"
+        placeholder="Search..."
+        onChange={handleSearchChange}
+      />
     </div>
   );
 }

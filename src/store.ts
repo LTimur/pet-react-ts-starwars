@@ -5,6 +5,7 @@ import { filmsReducer } from './features/FilmsSlice';
 import { filmReducer } from './features/FilmSlice';
 import { planetsReducer } from './features/PlanetsSlice';
 import { planetReducer } from './features/PlanetSlice';
+import { searchReducer } from './features/SearchSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     film: filmReducer,
     planets: planetsReducer,
     planet: planetReducer,
+    query: searchReducer,
   },
 });
