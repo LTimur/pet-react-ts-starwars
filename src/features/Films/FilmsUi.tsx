@@ -2,9 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../shared/api';
-import { setFilms } from '../features/FilmsSlice';
-import { colors, fonts } from '../variables';
+import { api } from '../../shared/api';
+import { setFilms } from './FilmsModel';
+import { colors, fonts } from '../../variables';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -36,7 +36,7 @@ const Film = styled(Link)`
   }
 `;
 
-function FilmsList({ films, handleFilmClick }) {
+function FilmsList({ films }) {
   return (
     <>
       {films.map((element) => (
@@ -61,9 +61,6 @@ export function Films() {
     <ContainerWrapper>
       <FilmsList
         films={films}
-        handleFilmClick={() => {
-          dispatch(setFilms(film))
-        }}
       />
     </ContainerWrapper>
   );

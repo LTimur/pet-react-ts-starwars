@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { Planets } from './components/Planets.tsx';
 import { PlanetCard } from './features/Planet/PlanetUi.tsx';
-import { Films } from './components/Films.tsx';
+import { Films } from './features/Films/FilmsUi.tsx';
 import { FilmCard } from './features/Film/FilmUi.tsx';
 import { Characters } from './features/Characters/CharactersUi.tsx';
 import { CharacterCard } from './features/Character/CharacterUi.tsx';

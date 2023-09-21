@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { charactersReducer } from './features/CharactersSlice';
+import { charactersReducer } from './features/Characters/CharactersModel';
 import { filmsReducer } from './features/FilmsSlice';
 import { planetsReducer } from './features/PlanetsSlice';
 import { searchReducer } from './features/SearchSlice';
