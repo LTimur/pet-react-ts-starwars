@@ -5,7 +5,7 @@ import { Planets } from './components/Planets.tsx';
 import { PlanetCard } from './features/Planet/PlanetUi.tsx';
 import { Films } from './components/Films.tsx';
 import { FilmCard } from './features/Film/FilmUi.tsx';
-import { Characters } from './components/Characters.tsx';
+import { Characters } from './features/Characters/CharactersUi.tsx';
 import { CharacterCard } from './features/Character/CharacterUi.tsx';
 import { MainLayout } from './components/MainLayout.tsx';
 

@@ -2,9 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../shared/api';
-import { setCharacters } from '../features/CharactersSlice';
-import { colors, fonts } from '../variables';
+import { api } from '../../shared/api';
+import { setCharacters } from './CharactersModel';
+import { colors, fonts } from '../../variables.tsx';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -36,7 +36,7 @@ const Character = styled(Link)`
   }
 `;
 
-function CharactersList({ characters, handleCharacterClick }) {
+function CharactersList({ characters }) {
   return (
     <>
       {characters.map((element) => (
@@ -61,9 +61,6 @@ export function Characters() {
     <ContainerWrapper>
       <CharactersList
         characters={characters}
-        handleCharacterClick={() => {
-          dispatch(setCharacters(character));
-        }}
       />
     </ContainerWrapper>
   );

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { Character } from '../entities/Character';
+import { Character } from '../../entities/Character';
 
 type CharacterProps = {
   character: Character
@@ -8,7 +8,7 @@ type CharacterProps = {
 
 const initialState: CharacterProps[] = [];
 
-const charactersSlice = createSlice({
+const charactersModel = createSlice({
   name: 'characters',
   initialState,
   reducers: {
@@ -18,5 +18,5 @@ const charactersSlice = createSlice({
   },
 });
 
-export const { setCharacters } = charactersSlice.actions;
-export const charactersReducer = charactersSlice.reducer;
+export const { setCharacters } = charactersModel.actions;
+export const charactersReducer = charactersModel.reducer;
