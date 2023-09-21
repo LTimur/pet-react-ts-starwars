@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getCharacters } from '../services/SwapiRequests';
+import { api } from '../shared/api';
 import { setCharacters } from '../features/CharactersSlice';
 import { colors, fonts } from '../variables';
 
@@ -52,7 +52,7 @@ export function Characters() {
   const characters = useSelector((state) => state.characters);
   const dispatch = useDispatch();
   useEffect(() => {
-    getCharacters().then((data) => {
+    void api.getCharacters().then((data) => {
       dispatch(setCharacters(data.results));
     });
   }, [dispatch]);

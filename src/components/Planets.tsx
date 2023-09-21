@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getPlanets } from '../services/SwapiRequests';
+import { api } from '../shared/api';
 import { setPlanets } from '../features/PlanetsSlice';
 import { colors, fonts } from '../variables';
 
@@ -55,10 +55,10 @@ const selectPlanetsByQuery = (state) => {
 export function Planets() {
   const query = useSelector((state) => state.query);
   const planets = useSelector(selectPlanetsByQuery);
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
-    getPlanets().then((data) => {
+    void api.getPlanets().then((data) => {
       dispatch(setPlanets(data.results));
     });
   }, [dispatch]);

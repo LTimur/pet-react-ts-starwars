@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getFilms } from '../services/SwapiRequests';
+import { api } from '../shared/api';
 import { setFilms } from '../features/FilmsSlice';
 import { colors, fonts } from '../variables';
 
@@ -52,7 +52,7 @@ export function Films() {
   const films = useSelector((state) => state.films);
   const dispatch = useDispatch();
   useEffect(() => {
-    getFilms().then((data) => {
+    void api.getFilms().then((data) => {
       dispatch(setFilms(data.results));
     });
   }, [dispatch]);
