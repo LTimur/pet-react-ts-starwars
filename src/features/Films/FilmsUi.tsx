@@ -48,7 +48,7 @@ function FilmsList({ films }) {
   );
 }
 
-export function Films() {
+export function FilmsUi() {
   const films = useSelector((state) => state.films);
   const dispatch = useDispatch();
   useEffect(() => {

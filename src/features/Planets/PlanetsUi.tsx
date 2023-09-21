@@ -2,9 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../shared/api';
-import { setPlanets } from '../features/PlanetsSlice';
-import { colors, fonts } from '../variables';
+import { api } from '../../shared/api';
+import { colors, fonts } from '../../variables';
+import type { Planet } from '../../entities/Planet';
+import { setPlanets } from './PlanetsModel';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -17,7 +18,6 @@ const ContainerWrapper = styled.div`
   padding: 20px;
   border-radius: 8px;
 `;
-
 const Planet = styled(Link)`
   margin: 0 auto;
   width: 70%;
@@ -35,24 +35,27 @@ const Planet = styled(Link)`
   }
 `;
 
-function PlanetList({ planets }) {
+type PlanetListProps = {
+  planets: Planet[];
+};
+function PlanetList({ planets }:PlanetListProps) {
+  const createLink = (url: string) => `/planets/${url.split('planets/')[1].split('/')[0]}`;
   return (
     <>
       {planets.map((element) => (
         <Planet key={element.url} to={`/planets/${element.url.split('planets/')[1].split('/')[0]}`}>
-          {element.name}
-        </Planet>
+        {element.name}
+      </Planet>
       ))}
     </>
   );
 }
-
 const selectPlanetsByQuery = (state) => {
   const query = state.query.query.toLowerCase();
   return state.planets.filter((planet) => planet.name.toLowerCase().includes(query));
 };
 
-export function Planets() {
+export function PlanetsUi() {
   const query = useSelector((state) => state.query);
   const planets = useSelector(selectPlanetsByQuery);
 
@@ -67,9 +70,6 @@ export function Planets() {
     <ContainerWrapper>
       <PlanetList
         planets={planets}
-        handlePlanetClick={() => {
-          console.log('ok');
-        }}
       />
     </ContainerWrapper>
   );

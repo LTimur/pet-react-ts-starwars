@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { Planets } from './components/Planets.tsx';
+import { PlanetsUi } from './features/Planets/PlanetsUi.tsx';
 import { PlanetCard } from './features/Planet/PlanetUi.tsx';
-import { Films } from './features/Films/FilmsUi.tsx';
+import { FilmsUi } from './features/Films/FilmsUi.tsx';
 import { FilmCard } from './features/Film/FilmUi.tsx';
-import { Characters } from './features/Characters/CharactersUi.tsx';
+import { CharactersUi } from './features/Characters/CharactersUi.tsx';
 import { CharacterCard } from './features/Character/CharacterUi.tsx';
 import { MainLayout } from './components/MainLayout.tsx';
 
@@ -14,11 +14,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route path="/films" element={<Films />} />
+          <Route path="/films" element={<FilmsUi />} />
           <Route path="/films/:id" element={<FilmCard />} />
-          <Route path="/characters" element={<Characters />} />
+          <Route path="/characters" element={<CharactersUi />} />
           <Route path="/characters/:id" element={<CharacterCard />} />
-          <Route path="/planets" element={<Planets />} />
+          <Route path="/planets" element={<PlanetsUi />} />
           <Route path="/planets/:id" element={<PlanetCard />} />
         </Route>
       </Routes>

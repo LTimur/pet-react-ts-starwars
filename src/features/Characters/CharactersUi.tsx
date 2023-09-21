@@ -48,7 +48,7 @@ function CharactersList({ characters }) {
   );
 }
 
-export function Characters() {
+export function CharactersUi() {
   const characters = useSelector((state) => state.characters);
   const dispatch = useDispatch();
   useEffect(() => {
