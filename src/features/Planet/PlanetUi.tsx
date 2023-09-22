@@ -33,28 +33,44 @@ export function PlanetCard() {
     <StyledPlanet>
       <h2>{data.name}</h2>
       <p>
-        Climate: {data.climate}
+        Climate:
+        {' '}
+        {data.climate}
       </p>
       <p>
-        Terrain: {data.terrain}
+        Terrain:
+        {' '}
+        {data.terrain}
       </p>
       <p>
-        Population: {data.population}
+        Population:
+        {' '}
+        {data.population}
       </p>
       <p>
-        Diameter: {data.diameter}
+        Diameter:
+        {' '}
+        {data.diameter}
       </p>
       <p>
-        Orbital period: {data.orbital_period}
+        Orbital period:
+        {' '}
+        {data.orbital_period}
       </p>
       <p>
-        Rotation period: {data.rotation_period}
+        Rotation period:
+        {' '}
+        {data.rotation_period}
       </p>
       <p>
-        Gravity: {data.gravity}
+        Gravity:
+        {' '}
+        {data.gravity}
       </p>
       <p>
-        Surface water: {data.surface_water}
+        Surface water:
+        {' '}
+        {data.surface_water}
       </p>
     </StyledPlanet>
   );

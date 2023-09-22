@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { PlanetsUi } from './features/Planets/PlanetsUi.tsx';
-import { PlanetCard } from './features/Planet/PlanetUi.tsx';
-import { FilmsUi } from './features/Films/FilmsUi.tsx';
-import { FilmCard } from './features/Film/FilmUi.tsx';
-import { CharactersUi } from './features/Characters/CharactersUi.tsx';
-import { CharacterCard } from './features/Character/CharacterUi.tsx';
-import { MainLayout } from './components/MainLayout.tsx';
+import { PlanetsUi } from './features/Planets/PlanetsUi';
+import { PlanetCard } from './features/Planet/PlanetUi';
+import { FilmsUi } from './features/Films/FilmsUi';
+import { FilmCard } from './features/Film/FilmUi';
+import { CharactersUi } from './features/Characters/CharactersUi';
+import { CharacterCard } from './features/Character/CharacterUi';
+import { MainLayout } from './components/MainLayout';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

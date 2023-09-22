@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import logo from '../assets/logo.png';
 import { colors, fonts } from '../variables';
 
@@ -57,8 +56,6 @@ const Input = styled.input`
   }
 `;
 
-const setActive = ({ isActive }) => (isActive ? 'active-link' : '');
-
 export function Header() {
   return (
     <div>
@@ -66,13 +63,13 @@ export function Header() {
         <Logo src={logo} alt="Star Wars" />
       </LogoContainer>
       <Menu>
-        <StyledLink className={setActive} to="/films">
+        <StyledLink to="/films">
           Films
         </StyledLink>
-        <StyledLink className={setActive} to="/planets">
+        <StyledLink to="/planets">
           Planets
         </StyledLink>
-        <StyledLink className={setActive} to="/people">
+        <StyledLink to="/people">
           Characters
         </StyledLink>
       </Menu>

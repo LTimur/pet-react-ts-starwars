@@ -22,6 +22,9 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'import/prefer-default-export': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
+    'no-void': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
