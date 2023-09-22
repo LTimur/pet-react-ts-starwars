@@ -43,7 +43,7 @@ To run this project locally, follow these steps:
 - Use the search input field to filter data based on your search criteria.
 - Click on a film to view detailed information about that film.
 
-# Project Folder Structure
+## Project Folder Structure
 
 The project follows the Feature-Sliced Design architecture to keep code organized and maintainable. Here's a brief overview of the project's folder structure:
 
