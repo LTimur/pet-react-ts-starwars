@@ -4,7 +4,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { api } from '../../shared/api';
 import { Character } from '../../entities/Character';
 
-
 const initialState: CharacterProps[] = [];
 
 const charactersModel = createSlice({

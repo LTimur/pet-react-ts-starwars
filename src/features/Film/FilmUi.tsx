@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Text, Paper, Title } from '@mantine/core';
 import { colors, fonts } from '../../variables';
 import { useFilmData } from './FilmModel';
 
@@ -30,24 +31,30 @@ export function FilmCard() {
   }
 
   return (
-    <StyledFilm>
-      <h2>{data.title}</h2>
-      <p>{data.opening_crawl}</p>
-      <p>
+    <Paper shadow="md" withBorder p="xl">
+      <Title order={2}>{data.title}</Title>
+      <Text>{data.opening_crawl}</Text>
+      <Text date fw={700}>
         Release date:
-        {' '}
-        {data.release_date}
-      </p>
-      <p>
+        <Text component="date">
+          {' '}
+          {data.release_date}
+        </Text>
+      </Text>
+      <Text director fw={700}>
         Director:
-        {' '}
-        {data.director}
-      </p>
-      <p>
+        <Text component="director">
+          {' '}
+          {data.director}
+        </Text>
+      </Text>
+      <Text producer fw={700}>
         Producer:
-        {' '}
-        {data.producer}
-      </p>
-    </StyledFilm>
+        <Text component="producer">
+          {' '}
+          {data.producer}
+        </Text>
+      </Text>
+    </Paper>
   );
 }

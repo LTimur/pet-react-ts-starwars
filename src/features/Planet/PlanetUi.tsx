@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Text, Paper, Title } from '@mantine/core';
 import { colors, fonts } from '../../variables';
 import { usePlanetData } from './PlanetModel';
 
@@ -30,48 +31,67 @@ export function PlanetCard() {
   }
 
   return (
-    <StyledPlanet>
-      <h2>{data.name}</h2>
-      <p>
+    <Paper shadow="md" withBorder p="xl">
+      <Title order={2}>{data.name}</Title>
+      <Text>{data.opening_crawl}</Text>
+      <Text climate fw={700}>
+        {' '}
         Climate:
-        {' '}
-        {data.climate}
-      </p>
-      <p>
+        <Text component="climate">
+          {' '}
+          {data.climate}
+          {' '}
+        </Text>
+      </Text>
+      <Text terrain fw={700}>
         Terrain:
-        {' '}
-        {data.terrain}
-      </p>
-      <p>
+        <Text component="terrain">
+          {' '}
+          {data.terrain}
+        </Text>
+      </Text>
+      <Text population fw={700}>
         Population:
-        {' '}
-        {data.population}
-      </p>
-      <p>
+        <Text component="population">
+          {' '}
+          {data.population}
+        </Text>
+      </Text>
+      <Text diameter fw={700}>
         Diameter:
-        {' '}
-        {data.diameter}
-      </p>
-      <p>
+        <Text component="diameter">
+          {' '}
+          {data.diameter}
+        </Text>
+      </Text>
+      <Text orbital_period fw={700}>
         Orbital period:
-        {' '}
-        {data.orbital_period}
-      </p>
-      <p>
+        <Text component="orbital_period">
+          {' '}
+          {data.orbital_period}
+        </Text>
+      </Text>
+      <Text rotation_period fw={700}>
         Rotation period:
-        {' '}
-        {data.rotation_period}
-      </p>
-      <p>
+        <Text component="rotation_period">
+          {' '}
+          {data.rotation_period}
+        </Text>
+      </Text>
+      <Text gravity fw={700}>
         Gravity:
-        {' '}
-        {data.gravity}
-      </p>
-      <p>
+        <Text component="gravity">
+          {' '}
+          {data.gravity}
+        </Text>
+      </Text>
+      <Text surface_water fw={700}>
         Surface water:
-        {' '}
-        {data.surface_water}
-      </p>
-    </StyledPlanet>
+        <Text component="surface_water">
+          {' '}
+          {data.surface_water}
+        </Text>
+      </Text>
+    </Paper>
   );
 }
