@@ -1,10 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../../shared/api';
-import { setCharacters } from './CharactersModel';
+import { useCharacters } from './CharactersModel';
 import { colors, fonts } from '../../variables';
+import type { Character } from '../../entities/Character';
+import { useFilter } from '../Filter/FilterModel';
+import { Filter } from '../Filter/FilterUi';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -18,7 +19,7 @@ const ContainerWrapper = styled.div`
   border-radius: 8px;
 `;
 
-const Character = styled(Link)`
+const StyledCharacter = styled(Link)`
   margin: 0 auto;
   width: 70%;
   color: ${colors.FontColor};
@@ -36,33 +37,32 @@ const Character = styled(Link)`
   }
 `;
 
-function CharactersList({ characters }) {
+type CharacterListProps = {
+  characters: Character[];
+};
+
+function CharactersList({ characters }: CharacterListProps) {
   const createLink = (url: string) => `/people/${url.split('people/')[1].split('/')[0]}`;
   return (
     <>
       {characters.map((element) => (
-        <Character key={element.url} to={createLink(element.url)}>
+        <StyledCharacter key={element.url} to={createLink(element.url)}>
           {element.name}
-        </Character>
+        </StyledCharacter>
       ))}
     </>
   );
 }
 
 export function CharactersUi() {
-  const characters = useSelector((state) => state.characters);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    void api.getCharacters().then((data) => {
-      dispatch(setCharacters(data.results));
-    });
-  }, [dispatch]);
+  const [isLoading, characters] = useCharacters();
+  const [filter, setFilter] = useState('');
+  const charactersFiltered = useFilter<Character[]>(characters ?? [], filter);
 
   return (
     <ContainerWrapper>
-      <CharactersList
-        characters={characters}
-      />
+      <Filter onChange={setFilter} />
+      <CharactersList characters={charactersFiltered} />
     </ContainerWrapper>
   );
 }

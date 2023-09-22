@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import logo from '../assets/logo.png';
 import { colors, fonts } from '../variables';
-import { setSearchQuery } from '../features/SearchSlice';
 
 const LogoContainer = styled.div`
   display: flex;
@@ -61,13 +60,6 @@ const Input = styled.input`
 const setActive = ({ isActive }) => (isActive ? 'active-link' : '');
 
 export function Header() {
-  const query = useSelector((state) => state.query);
-  console.log(query)
-  const dispatch = useDispatch();
-  const handleSearchChange = (e) => {
-    dispatch(setSearchQuery(e.target.value));
-  };
-
   return (
     <div>
       <LogoContainer>

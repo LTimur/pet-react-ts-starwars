@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../../shared/api';
-import { setFilms } from './FilmsModel';
+import { useFilms } from './FilmsModel';
 import { colors, fonts } from '../../variables';
+import type { Film } from '../../entities/Film';
+import { useFilter } from '../Filter/FilterModel';
 import { Filter } from '../Filter/FilterUi';
 
 const ContainerWrapper = styled.div`
@@ -20,7 +20,7 @@ const ContainerWrapper = styled.div`
   
 `;
 
-const Film = styled(Link)`
+const StyledFilm = styled(Link)`
   margin: 0 auto;
   width: 70%;
   color: ${colors.FontColor};
@@ -37,33 +37,33 @@ const Film = styled(Link)`
   }
 `;
 
-function FilmsList({ films }) {
+type FilmListProps = {
+  films: Film[];
+};
+
+function FilmsList({ films }:FilmListProps) {
   const createLink = (url: string) => `/films/${url.split('films/')[1].split('/')[0]}`;
   return (
     <>
       {films.map((element) => (
-        <Film key={element.url} to={createLink(element.url)}>
+        <StyledFilm key={element.url} to={createLink(element.url)}>
           {element.title}
-        </Film>
+        </StyledFilm>
       ))}
     </>
   );
 }
 
 export function FilmsUi() {
-  const films = useSelector((state) => state.films);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    void api.getFilms().then((data) => {
-      dispatch(setFilms(data.results));
-    });
-  }, [dispatch]);
+  const [isLoading, films] = useFilms();
+  const [filter, setFilter] = useState('');
+  const filmsFiltered = useFilter<Film[]>(films ?? [], filter);
 
   return (
     <ContainerWrapper>
-      <Filter />
+      <Filter onChange={setFilter} />
       <FilmsList
-        films={films}
+        films={filmsFiltered}
       />
     </ContainerWrapper>
   );

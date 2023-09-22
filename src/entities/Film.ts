@@ -7,5 +7,4 @@ export type Film = {
   producer: 'string';
   opening_crawl: 'string';
   planets: [];
-  films: [];
 };

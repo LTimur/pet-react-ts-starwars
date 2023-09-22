@@ -1,11 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../../shared/api';
+import { usePlanets } from './PlanetsModel';
 import { colors, fonts } from '../../variables';
 import type { Planet } from '../../entities/Planet';
-import { setPlanets } from './PlanetsModel';
+import { useFilter } from '../Filter/FilterModel';
+import { Filter } from '../Filter/FilterUi';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -18,7 +18,7 @@ const ContainerWrapper = styled.div`
   padding: 20px;
   border-radius: 8px;
 `;
-const Planet = styled(Link)`
+const StyledPlanet = styled(Link)`
   margin: 0 auto;
   width: 70%;
   color: ${colors.FontColor};
@@ -38,38 +38,30 @@ const Planet = styled(Link)`
 type PlanetListProps = {
   planets: Planet[];
 };
+
 function PlanetList({ planets }:PlanetListProps) {
   const createLink = (url: string) => `/planets/${url.split('planets/')[1].split('/')[0]}`;
   return (
     <>
       {planets.map((element) => (
-        <Planet key={element.url} to={createLink(element.url)}>
-        {element.name}
-      </Planet>
+        <StyledPlanet key={element.url} to={createLink(element.url)}>
+          {element.name}
+        </StyledPlanet>
       ))}
     </>
   );
 }
-const selectPlanetsByQuery = (state) => {
-  const query = state.query.query.toLowerCase();
-  return state.planets.filter((planet) => planet.name.toLowerCase().includes(query));
-};
 
 export function PlanetsUi() {
-  const query = useSelector((state) => state.query);
-  const planets = useSelector(selectPlanetsByQuery);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    void api.getPlanets().then((data) => {
-      dispatch(setPlanets(data.results));
-    });
-  }, [dispatch]);
+  const [isLoading, planets] = usePlanets();
+  const [filter, setFilter] = useState('');
+  const planetsFiltered = useFilter<Planet[]>(planets ?? [], filter);
 
   return (
     <ContainerWrapper>
+      <Filter onChange={setFilter} />
       <PlanetList
-        planets={planets}
+        planets={planetsFiltered}
       />
     </ContainerWrapper>
   );
