@@ -80,15 +80,10 @@ export function Header() {
         <StyledLink className={setActive} to="/planets">
           Planets
         </StyledLink>
-        <StyledLink className={setActive} to="/characters">
+        <StyledLink className={setActive} to="/people">
           Characters
         </StyledLink>
       </Menu>
-      <Input
-        type="text"
-        placeholder="Search..."
-        onChange={handleSearchChange}
-      />
     </div>
   );
 }

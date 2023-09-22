@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../../shared/api';
 import { setCharacters } from './CharactersModel';
-import { colors, fonts } from '../../variables.tsx';
+import { colors, fonts } from '../../variables';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -37,10 +37,11 @@ const Character = styled(Link)`
 `;
 
 function CharactersList({ characters }) {
+  const createLink = (url: string) => `/people/${url.split('people/')[1].split('/')[0]}`;
   return (
     <>
       {characters.map((element) => (
-        <Character key={element.url} to={`/characters/${element.url.split('people/')[1].split('/')[0]}`}>
+        <Character key={element.url} to={createLink(element.url)}>
           {element.name}
         </Character>
       ))}

@@ -43,7 +43,7 @@ function PlanetList({ planets }:PlanetListProps) {
   return (
     <>
       {planets.map((element) => (
-        <Planet key={element.url} to={`/planets/${element.url.split('planets/')[1].split('/')[0]}`}>
+        <Planet key={element.url} to={createLink(element.url)}>
         {element.name}
       </Planet>
       ))}

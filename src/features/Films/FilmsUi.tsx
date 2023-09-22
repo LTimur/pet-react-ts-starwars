@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { api } from '../../shared/api';
 import { setFilms } from './FilmsModel';
 import { colors, fonts } from '../../variables';
+import { Filter } from '../Filter/FilterUi';
 
 const ContainerWrapper = styled.div`
   margin: 0 auto;
@@ -37,10 +38,11 @@ const Film = styled(Link)`
 `;
 
 function FilmsList({ films }) {
+  const createLink = (url: string) => `/films/${url.split('films/')[1].split('/')[0]}`;
   return (
     <>
       {films.map((element) => (
-        <Film key={element.url} to={`/films/${element.url.split('films/')[1].split('/')[0]}`}>
+        <Film key={element.url} to={createLink(element.url)}>
           {element.title}
         </Film>
       ))}
@@ -59,6 +61,7 @@ export function FilmsUi() {
 
   return (
     <ContainerWrapper>
+      <Filter />
       <FilmsList
         films={films}
       />

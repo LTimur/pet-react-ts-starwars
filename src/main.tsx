@@ -16,8 +16,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<MainLayout />}>
           <Route path="/films" element={<FilmsUi />} />
           <Route path="/films/:id" element={<FilmCard />} />
-          <Route path="/characters" element={<CharactersUi />} />
-          <Route path="/characters/:id" element={<CharacterCard />} />
+          <Route path="/people" element={<CharactersUi />} />
+          <Route path="/people/:id" element={<CharacterCard />} />
           <Route path="/planets" element={<PlanetsUi />} />
           <Route path="/planets/:id" element={<PlanetCard />} />
         </Route>
