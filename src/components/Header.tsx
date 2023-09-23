@@ -1,78 +1,54 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink as RouterNavLink } from 'react-router-dom';
+import {
+  Box, NavLink, Flex, Image,
+} from '@mantine/core';
+import { useState } from 'react';
 import logo from '../assets/logo.png';
-import { colors, fonts } from '../variables';
 
-const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-`;
-
-const Logo = styled.img`
-  width: 150px;
-  height: auto;
-`;
-
-const Menu = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-`;
-
-const StyledLink = styled(NavLink)`
-  text-decoration: none;
-  color: inherit;
-  margin: 0 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: ${fonts.SecondaryFontSize};
-  cursor: pointer;
-  background-color: ${colors.FontColor};
-  color: ${colors.LightColor};
-
-  &:hover {
-    color: ${colors.LightAccentColor};
-  }
-
-  &.active-link {
-    background-color: ${colors.DarkAccentColor};
-    color: ${colors.LightColor};
-  }
-`;
-
-const Input = styled.input`
-  display: block;
-  width: 70%;
-  margin: 10px auto;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: ${fonts.SecondaryFontSize};
-  outline: none;
-
-  &:focus {
-    border: 2px solid ${colors.FontColor};
-  }
-`;
+const data = [
+  { label: 'Films', path: '/films' },
+  { label: 'Planets', path: '/planets' },
+  { label: 'Characters', path: '/people' },
+];
 
 export function Header() {
+  const [active, setActive] = useState(0);
+
+  const items = data.map((item, index) => (
+    <NavLink
+      key={item.label}
+      active={index === active}
+      label={item.label}
+      onClick={() => setActive(index)}
+      color="rgba(0, 0, 0, 1)"
+      variant="filled"
+      component={RouterNavLink}
+      to={item.path}
+    />
+  ));
+
   return (
     <div>
-      <LogoContainer>
-        <Logo src={logo} alt="Star Wars" />
-      </LogoContainer>
-      <Menu>
-        <StyledLink to="/films">
-          Films
-        </StyledLink>
-        <StyledLink to="/planets">
-          Planets
-        </StyledLink>
-        <StyledLink to="/people">
-          Characters
-        </StyledLink>
-      </Menu>
+      <Flex
+        mih={50}
+        gap="xl"
+        justify="center"
+        align="center"
+        direction="row"
+        wrap="wrap"
+      >
+        <Flex
+          justify="center"
+          align="flex-start"
+        >
+          <Image
+            w={150}
+            src={logo}
+            alt="Star Wars"
+          />
+        </Flex>
+        <Box w={220}>{items}</Box>
+      </Flex>
     </div>
   );
 }
