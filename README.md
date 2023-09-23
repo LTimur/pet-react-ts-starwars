@@ -41,7 +41,7 @@ To run this project locally, follow these steps:
 
 - Click on one of the three categories in the header: Films, Planets, or Characters.
 - Use the search input field to filter data based on your search criteria.
-- Click on a film to view detailed information about that film.
+- Click on an element in the list to view detailed information.
 
 ## Project Folder Structure
 
