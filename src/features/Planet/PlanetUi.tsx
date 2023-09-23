@@ -1,34 +1,22 @@
-import styled from 'styled-components';
 import {
-  Text, Paper, Title, Space, LoadingOverlay
+  Text, Paper, Title, Space, LoadingOverlay,
 } from '@mantine/core';
-import { colors, fonts } from '../../variables';
 import { usePlanetData } from './PlanetModel';
-
-const StyledPlanet = styled.div`
-  margin: 0 auto;
-  width: 70%;
-  color: ${colors.FontColor};
-  background-color: ${colors.LightColor};
-  padding: 10px;
-  border-radius: 8px;
-  font-size: ${fonts.PrimaryFontSize};
-`;
 
 export function PlanetCard() {
   const { isLoading, error, data } = usePlanetData();
   if (isLoading) {
     return (
-      <StyledPlanet>
-        <p>Loading</p>
-      </StyledPlanet>
+      <Paper shadow="md" withBorder p="xl">
+        <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
+      </Paper>
     );
   }
   if (error) {
     return (
-      <StyledPlanet>
-        <div>{error}</div>
-      </StyledPlanet>
+      <Paper shadow="md" withBorder p="xl">
+        {error}
+      </Paper>
     );
   }
 

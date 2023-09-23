@@ -1,34 +1,22 @@
-import styled from 'styled-components';
 import {
-  Text, Paper, Title, Space,
+  Text, Paper, Title, Space, LoadingOverlay,
 } from '@mantine/core';
-import { colors, fonts } from '../../variables';
 import { useFilmData } from './FilmModel';
-
-const StyledFilm = styled.div`
-  margin: 0 auto;
-  width: 70%;
-  color: ${colors.FontColor};
-  background-color: ${colors.LightColor};
-  padding: 10px;
-  border-radius: 8px;
-  font-size: ${fonts.PrimaryFontSize};
-`;
 
 export function FilmCard() {
   const { isLoading, error, data } = useFilmData();
   if (isLoading) {
     return (
-      <StyledFilm>
-        <p>Loading</p>
-      </StyledFilm>
+      <Paper shadow="md" withBorder p="xl">
+        <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
+      </Paper>
     );
   }
   if (error) {
     return (
-      <StyledFilm>
-        <div>{error}</div>
-      </StyledFilm>
+      <Paper shadow="md" withBorder p="xl">
+        {error}
+      </Paper>
     );
   }
 

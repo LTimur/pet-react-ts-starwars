@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { NavLink as RouterNavLink } from 'react-router-dom'; 
+import { NavLink as RouterNavLink } from 'react-router-dom';
 import { Paper, NavLink, LoadingOverlay } from '@mantine/core';
- import { usePlanets } from './PlanetsModel';
+import { usePlanets } from './PlanetsModel';
 import type { Planet } from '../../entities/Planet';
 import { useFilter } from '../Filter/FilterModel';
 import { Filter } from '../Filter/FilterUi';
@@ -33,7 +33,7 @@ export function PlanetsUi() {
 
   return (
     <Paper shadow="xl" p="xl">
-      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
       <Filter onChange={setFilter} />
       <PlanetList
         planets={planetsFiltered}

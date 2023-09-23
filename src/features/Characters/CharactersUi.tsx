@@ -33,7 +33,7 @@ export function CharactersUi() {
 
   return (
     <Paper shadow="xl" p="xl">
-      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
       <Filter onChange={setFilter} />
       <CharactersList characters={charactersFiltered} />
     </Paper>

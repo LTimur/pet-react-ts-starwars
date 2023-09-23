@@ -33,7 +33,7 @@ export function FilmsUi() {
 
   return (
     <Paper shadow="xl" p="xl" pos="relative">
-      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
       <Filter onChange={setFilter} />
       <FilmsList
         films={filmsFiltered}

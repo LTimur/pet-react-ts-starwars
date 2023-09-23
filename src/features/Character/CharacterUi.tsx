@@ -1,34 +1,22 @@
-import styled from 'styled-components';
 import {
-  Text, Paper, Title, Space,
+  Text, Paper, Title, Space, LoadingOverlay,
 } from '@mantine/core';
-import { colors, fonts } from '../../variables';
 import { useCharacterData } from './CharacterModel';
-
-const StyledCharacter = styled.div`
-  margin: 0 auto;
-  width: 70%;
-  color: ${colors.FontColor};
-  background-color: ${colors.LightColor};
-  padding: 10px;
-  border-radius: 8px;
-  font-size: ${fonts.PrimaryFontSize};
-`;
 
 export function CharacterCard() {
   const { isLoading, error, data } = useCharacterData();
   if (isLoading) {
     return (
-      <StyledCharacter>
-        <div>Loading</div>
-      </StyledCharacter>
+      <Paper shadow="md" withBorder p="xl">
+        <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
+      </Paper>
     );
   }
   if (error) {
     return (
-      <StyledCharacter>
-        <div>{error}</div>
-      </StyledCharacter>
+      <Paper shadow="md" withBorder p="xl">
+        {error}
+      </Paper>
     );
   }
 
