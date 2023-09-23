@@ -29,26 +29,32 @@ export function Header() {
 
   return (
     <div>
-      <Flex
-        mih={50}
-        gap="xl"
-        justify="center"
-        align="center"
-        direction="row"
-        wrap="wrap"
-      >
+      <Box m="0 auto" maw={1200}>
         <Flex
-          justify="center"
-          align="flex-start"
+          mih={50}
+          gap="xl"
+          justify="space-around"
+          align="center"
+          direction="row"
+          wrap="wrap"
         >
-          <Image
-            w={150}
-            src={logo}
-            alt="Star Wars"
-          />
+          <Flex
+            justify="center"
+            align="flex-start"
+          >
+            <Image
+              w={150}
+              src={logo}
+              alt="Star Wars"
+            />
+          </Flex>
+          <Flex
+            direction="row"
+          >
+            {items}
+          </Flex>
         </Flex>
-        <Box w={220}>{items}</Box>
-      </Flex>
+      </Box>
     </div>
   );
 }
