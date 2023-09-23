@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom';
-import { Paper, NavLink } from '@mantine/core';
+import { Paper, NavLink, LoadingOverlay } from '@mantine/core';
 import { useCharacters } from './CharactersModel';
 import type { Character } from '../../entities/Character';
 import { useFilter } from '../Filter/FilterModel';
@@ -33,6 +33,7 @@ export function CharactersUi() {
 
   return (
     <Paper shadow="xl" p="xl">
+      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
       <Filter onChange={setFilter} />
       <CharactersList characters={charactersFiltered} />
     </Paper>

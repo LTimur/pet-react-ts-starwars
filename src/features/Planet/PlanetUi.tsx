@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {
-  Text, Paper, Title, Space,
+  Text, Paper, Title, Space, LoadingOverlay
 } from '@mantine/core';
 import { colors, fonts } from '../../variables';
 import { usePlanetData } from './PlanetModel';

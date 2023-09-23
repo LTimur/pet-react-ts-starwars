@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom';
-import { Paper, NavLink } from '@mantine/core';
+import { Paper, NavLink, LoadingOverlay } from '@mantine/core';
 import { useFilms } from './FilmsModel';
 import type { Film } from '../../entities/Film';
 import { useFilter } from '../Filter/FilterModel';
@@ -32,7 +32,8 @@ export function FilmsUi() {
   const filmsFiltered = useFilter<Film[]>(films ?? [], filter);
 
   return (
-    <Paper shadow="xl" p="xl">
+    <Paper shadow="xl" p="xl" pos="relative">
+      <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
       <Filter onChange={setFilter} />
       <FilmsList
         films={filmsFiltered}
