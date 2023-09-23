@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Text, Paper, Title, Space } from '@mantine/core';
+import {
+  Text, Paper, Title, Space,
+} from '@mantine/core';
 import { colors, fonts } from '../../variables';
 import { useFilmData } from './FilmModel';
 

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Text, Paper, Title } from '@mantine/core';
+import {
+  Text, Paper, Title, Space,
+} from '@mantine/core';
 import { colors, fonts } from '../../variables';
 import { usePlanetData } from './PlanetModel';
 
@@ -33,6 +35,7 @@ export function PlanetCard() {
   return (
     <Paper shadow="md" withBorder p="xl">
       <Title order={2}>{data.name}</Title>
+      <Space h="md" />
       <Text>{data.opening_crawl}</Text>
       <Text climate fw={700}>
         {' '}

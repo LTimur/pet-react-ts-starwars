@@ -1,41 +1,10 @@
-import styled from 'styled-components';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink as RouterNavLink } from 'react-router-dom';
+import { Paper, NavLink } from '@mantine/core';
 import { useCharacters } from './CharactersModel';
-import { colors, fonts } from '../../variables';
 import type { Character } from '../../entities/Character';
 import { useFilter } from '../Filter/FilterModel';
 import { Filter } from '../Filter/FilterUi';
-
-const ContainerWrapper = styled.div`
-  margin: 0 auto;
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background-color: ${colors.FontColor};
-  color: ${colors.DarkBackgroundColor};
-  padding: 20px;
-  border-radius: 8px;
-`;
-
-const StyledCharacter = styled(Link)`
-  margin: 0 auto;
-  width: 70%;
-  color: ${colors.FontColor};
-  background-color: ${colors.LightColor};
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: ${fonts.PrimaryFontSize};
-  text-align: center;
-  text-decoration: none;
-
-  &:hover {
-    cursor: pointer;
-    background-color: ${colors.LightAccentColor};
-  }
-`;
 
 type CharacterListProps = {
   characters: Character[];
@@ -46,9 +15,12 @@ function CharactersList({ characters }: CharacterListProps) {
   return (
     <>
       {characters.map((element) => (
-        <StyledCharacter key={element.url} to={createLink(element.url)}>
-          {element.name}
-        </StyledCharacter>
+        <NavLink
+          key={element.url}
+          label={element.name}
+          component={RouterNavLink}
+          to={createLink(element.url)}
+        />
       ))}
     </>
   );
@@ -60,9 +32,9 @@ export function CharactersUi() {
   const charactersFiltered = useFilter<Character[]>(characters ?? [], filter);
 
   return (
-    <ContainerWrapper>
+    <Paper shadow="xl" p="xl">
       <Filter onChange={setFilter} />
       <CharactersList characters={charactersFiltered} />
-    </ContainerWrapper>
+    </Paper>
   );
 }
