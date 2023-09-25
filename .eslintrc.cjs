@@ -25,6 +25,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
     'no-void': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
