@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { charactersReducer } from './features/Characters/CharactersModel';
-import { filmsReducer } from './features/Films/FilmsModel';
+import { charactersReducer } from './features/Characters/Model';
+import { filmsReducer } from './features/Films/Model';
 import { planetsReducer } from './features/Planets/PlanetsModel';
 
 export const store = configureStore({
