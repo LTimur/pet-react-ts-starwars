@@ -1,7 +1,7 @@
 import {
   Text, Paper, Title, Space, LoadingOverlay,
 } from '@mantine/core';
-import { useCharacterData } from './CharacterModel';
+import { useCharacterData } from './Model';
 
 export function CharacterCard() {
   const { isLoading, error, data } = useCharacterData();

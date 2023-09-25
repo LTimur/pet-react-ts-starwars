@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 import { Paper, NavLink, LoadingOverlay } from '@mantine/core';
-import { usePlanets } from './PlanetsModel';
+import { usePlanets } from './Model';
 import type { Planet } from '../../entities/Planet';
 import { useFilter } from '../Filter/FilterModel';
 import { Filter } from '../Filter/FilterUi';

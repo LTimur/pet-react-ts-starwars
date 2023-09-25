@@ -1,7 +1,7 @@
 import {
   Text, Paper, Title, Space, LoadingOverlay,
 } from '@mantine/core';
-import { usePlanetData } from './PlanetModel';
+import { usePlanetData } from './Model';
 
 export function PlanetCard() {
   const { isLoading, error, data } = usePlanetData();

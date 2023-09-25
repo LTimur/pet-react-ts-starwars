@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { PlanetsUi } from './features/Planets/PlanetsUi';
-import { PlanetCard } from './features/Planet/PlanetUi';
-import { FilmsUi } from './features/Films/FilmsUi';
-import { FilmCard } from './features/Film/FilmUi';
-import { CharactersUi } from './features/Characters/CharactersUi';
-import { CharacterCard } from './features/Character/CharacterUi';
+import { PlanetsUi } from './features/Planets/Ui';
+import { PlanetCard } from './features/Planet/Ui';
+import { FilmsUi } from './features/Films/Ui';
+import { FilmCard } from './features/Film/Ui';
+import { CharactersUi } from './features/Characters/Ui';
+import { CharacterCard } from './features/Character/Ui';
 import { MainLayout } from './components/MainLayout';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

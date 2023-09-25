@@ -1,7 +1,7 @@
 import {
   Text, Paper, Title, Space, LoadingOverlay,
 } from '@mantine/core';
-import { useFilmData } from './FilmModel';
+import { useFilmData } from './Model';
 
 export function FilmCard() {
   const { isLoading, error, data } = useFilmData();
