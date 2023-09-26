@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { api } from '../../shared/Api';
+import { api } from '../../shared/api';
 import { Planet } from '../../entities/Planet';
 
 const initialState: Planet[] = [];

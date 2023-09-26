@@ -8,18 +8,19 @@ import { FilmCard } from './features/Film/Ui';
 import { CharactersUi } from './features/Characters/Ui';
 import { CharacterCard } from './features/Character/Ui';
 import { MainLayout } from './components/MainLayout';
+import { PATH_PAGE } from './shared/lib/react-router/Paths';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route path="/films" element={<FilmsUi />} />
-          <Route path="/films/:id" element={<FilmCard />} />
-          <Route path="/people" element={<CharactersUi />} />
-          <Route path="/people/:id" element={<CharacterCard />} />
-          <Route path="/planets" element={<PlanetsUi />} />
-          <Route path="/planets/:id" element={<PlanetCard />} />
+        <Route path={PATH_PAGE.mainLayout} element={<MainLayout />}>
+          <Route path={PATH_PAGE.films} element={<FilmsUi />} />
+          <Route path={PATH_PAGE.filmCard} element={<FilmCard />} />
+          <Route path={PATH_PAGE.characters} element={<CharactersUi />} />
+          <Route path={PATH_PAGE.characterCard} element={<CharacterCard />} />
+          <Route path={PATH_PAGE.planets} element={<PlanetsUi />} />
+          <Route path={PATH_PAGE.planetCard} element={<PlanetCard />} />
         </Route>
       </Routes>
     </BrowserRouter>
