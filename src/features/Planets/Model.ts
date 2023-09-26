@@ -21,7 +21,7 @@ export const planetsReducer = planetsSlice.reducer;
 
 const planetsSelector = (state: { planets:Planet[] }) => state.planets;
 
-export const usePlanets = () => {
+export const usePlanets = (): [boolean, Planet[]] => {
   const planets = useSelector(planetsSelector);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);

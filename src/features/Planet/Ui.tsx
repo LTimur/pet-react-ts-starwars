@@ -12,10 +12,10 @@ export function PlanetCard() {
       </Paper>
     );
   }
-  if (error) {
+  if (error || !data) {
     return (
       <Paper shadow="md" withBorder p="xl">
-        {error}
+        <Text>Cannot show the info</Text>
       </Paper>
     );
   }
@@ -24,64 +24,45 @@ export function PlanetCard() {
     <Paper shadow="md" withBorder p="xl">
       <Title order={2}>{data.name}</Title>
       <Space h="md" />
-      <Text>{data.opening_crawl}</Text>
-      <Text climate fw={700}>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Climate:</span>
         {' '}
-        Climate:
-        <Text component="climate">
-          {' '}
-          {data.climate}
-          {' '}
-        </Text>
+        {data.climate}
       </Text>
-      <Text terrain fw={700}>
-        Terrain:
-        <Text component="terrain">
-          {' '}
-          {data.terrain}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Terrain:</span>
+        {' '}
+        {data.terrain}
       </Text>
-      <Text population fw={700}>
-        Population:
-        <Text component="population">
-          {' '}
-          {data.population}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Population:</span>
+        {' '}
+        {data.population}
       </Text>
-      <Text diameter fw={700}>
-        Diameter:
-        <Text component="diameter">
-          {' '}
-          {data.diameter}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Diameter:</span>
+        {' '}
+        {data.diameter}
       </Text>
-      <Text orbital_period fw={700}>
-        Orbital period:
-        <Text component="orbital_period">
-          {' '}
-          {data.orbital_period}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Orbital period:</span>
+        {' '}
+        {data.orbital_period}
       </Text>
-      <Text rotation_period fw={700}>
-        Rotation period:
-        <Text component="rotation_period">
-          {' '}
-          {data.rotation_period}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Rotation period:</span>
+        {' '}
+        {data.rotation_period}
       </Text>
-      <Text gravity fw={700}>
-        Gravity:
-        <Text component="gravity">
-          {' '}
-          {data.gravity}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Gravity:</span>
+        {' '}
+        {data.gravity}
       </Text>
-      <Text surface_water fw={700}>
-        Surface water:
-        <Text component="surface_water">
-          {' '}
-          {data.surface_water}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Surface water:</span>
+        {' '}
+        {data.surface_water}
       </Text>
     </Paper>
   );

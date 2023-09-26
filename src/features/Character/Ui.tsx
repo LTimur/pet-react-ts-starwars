@@ -12,10 +12,10 @@ export function CharacterCard() {
       </Paper>
     );
   }
-  if (error) {
+  if (error || !data) {
     return (
       <Paper shadow="md" withBorder p="xl">
-        {error}
+        <Text>Cannot show the info</Text>
       </Paper>
     );
   }
@@ -24,57 +24,40 @@ export function CharacterCard() {
     <Paper shadow="md" withBorder p="xl">
       <Title order={2}>{data.name}</Title>
       <Space h="md" />
-      <Text>{data.opening_crawl}</Text>
-      <Text gender fw={700}>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Gender:</span>
         {' '}
-        Gender:
-        <Text component="gender">
-          {' '}
-          {data.gender}
-          {' '}
-        </Text>
+        {data.gender}
       </Text>
-      <Text birth_year fw={700}>
-        Birth year:
-        <Text component="birth_year">
-          {' '}
-          {data.birth_year}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Birth year:</span>
+        {' '}
+        {data.birth_year}
       </Text>
-      <Text height fw={700}>
-        Height:
-        <Text component="height">
-          {' '}
-          {data.height}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Height:</span>
+        {' '}
+        {data.height}
       </Text>
-      <Text mass fw={700}>
-        Mass:
-        <Text component="mass">
-          {' '}
-          {data.mass}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Mass:</span>
+        {' '}
+        {data.mass}
       </Text>
-      <Text hair_color fw={700}>
-        Hair color:
-        <Text component="hair_color">
-          {' '}
-          {data.hair_color}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Hair color:</span>
+        {' '}
+        {data.hair_color}
       </Text>
-      <Text skin_color fw={700}>
-        Skin color:
-        <Text component="skin_color">
-          {' '}
-          {data.skin_color}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Skin color:</span>
+        {' '}
+        {data.skin_color}
       </Text>
-      <Text eye_color fw={700}>
-        Eye color:
-        <Text component="eye_color">
-          {' '}
-          {data.eye_color}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Eye color:</span>
+        {' '}
+        {data.eye_color}
       </Text>
     </Paper>
   );

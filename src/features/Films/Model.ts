@@ -21,7 +21,7 @@ export const filmsReducer = filmsModel.reducer;
 
 const filmsSelector = (state: { films:Film[] }) => state.films;
 
-export const useFilms = () => {
+export const useFilms = (): [boolean, Film[]] => {
   const films = useSelector(filmsSelector);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);

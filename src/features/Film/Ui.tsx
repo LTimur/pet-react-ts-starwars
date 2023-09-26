@@ -12,10 +12,10 @@ export function FilmCard() {
       </Paper>
     );
   }
-  if (error) {
+  if (error || !data) {
     return (
       <Paper shadow="md" withBorder p="xl">
-        {error}
+        <Text>Cannot show the info</Text>
       </Paper>
     );
   }
@@ -26,26 +26,20 @@ export function FilmCard() {
       <Space h="md" />
       <Text>{data.opening_crawl}</Text>
       <Space h="md" />
-      <Text date fw={700}>
-        Release date:
-        <Text component="date">
-          {' '}
-          {data.release_date}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Release date:</span>
+        {' '}
+        {data.release_date}
       </Text>
-      <Text director fw={700}>
-        Director:
-        <Text component="director">
-          {' '}
-          {data.director}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Director:</span>
+        {' '}
+        {data.director}
       </Text>
-      <Text producer fw={700}>
-        Producer:
-        <Text component="producer">
-          {' '}
-          {data.producer}
-        </Text>
+      <Text>
+        <span style={{ fontWeight: 700 }}>Producer:</span>
+        {' '}
+        {data.producer}
       </Text>
     </Paper>
   );
