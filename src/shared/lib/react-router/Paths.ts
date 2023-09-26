@@ -4,7 +4,7 @@ export const PATH_PAGE = {
   filmCard: '/films/:id',
   characters: '/people',
   characterCard: '/people/:id',
-  planets: '/people',
-  planetCard: '/people/:id',
+  planets: '/planets',
+  planetCard: '/planets/:id',
   page404: '/404',
 };
