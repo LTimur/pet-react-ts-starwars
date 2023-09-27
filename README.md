@@ -49,6 +49,8 @@ The project follows the [Feature-Sliced Design](https://feature-sliced.design/) 
 
 - `src/`: The main source code directory.
 
+  - `app/`: Сontains core application-specific code and configurations.
+  
   - `assets/`: Contains project assets.
 
   - `components/`: Houses reusable React components.
