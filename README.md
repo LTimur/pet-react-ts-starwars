@@ -60,3 +60,7 @@ The project follows the [Feature-Sliced Design](https://feature-sliced.design/) 
   - `features/`: Contains the main functionalities of the application, organized by feature.
 
   - `shared/`: Contains shared code and functionalities.
+
+## Deployment 
+
+The Star Wars Data Explorer application is live and hosted on [Netlify](https://www.netlify.com/). You can access it by visiting https://starwarsexplorer.netlify.app/.
