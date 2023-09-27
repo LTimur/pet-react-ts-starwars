@@ -24,22 +24,17 @@ const getCharacters = async (): Promise<CharactersApiResponse> => {
   }
 };
 
-type FilmApiResponse = {
-  results: Film
-};
-const getFilm = async (id: string): Promise<FilmApiResponse> => {
-  try {
-    const response = await fetch(`${filmsUrl}/${id}`);
-    if (response.ok) {
-      return await response.json() as FilmApiResponse;
-    }
-    throw new Error(`Can not get film by ${id}`);
-  } catch (error) {
-    console.error(error);
-    // @ts-ignore
-    return error;
+const getCharacter = async (id?: string) => {
+  if (!id) {
+    throw new Error('Should have an id');
   }
+  const response = await fetch(`${peopleUrl}/${id}`);
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('Cannot get data about character');
 };
+
 type FilmsApiResponse = {
   results: Film[]
 };
@@ -55,6 +50,17 @@ const getFilms = async (): Promise<FilmsApiResponse> => {
     // @ts-ignore
     return error;
   }
+};
+
+const getFilm = async (id?: string) => {
+  if (!id) {
+    throw new Error('Should have an id');
+  }
+  const response = await fetch(`${filmsUrl}/${id}`);
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('Cannot get data about film');
 };
 
 type PlanetsApiResponse = {
@@ -74,9 +80,22 @@ const getPlanets = async (): Promise<PlanetsApiResponse> => {
   }
 };
 
+const getPlanet = async (id?: string) => {
+  if (!id) {
+    throw new Error('Should have an id');
+  }
+  const response = await fetch(`${planetsUrl}/${id}`);
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('Cannot get data about planet');
+};
+
 export const api = {
-  getPlanets,
+  getCharacters,
+  getCharacter,
   getFilms,
   getFilm,
-  getCharacters,
+  getPlanets,
+  getPlanet,
 };

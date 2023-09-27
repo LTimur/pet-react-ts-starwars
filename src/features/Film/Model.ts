@@ -4,17 +4,13 @@ import {
 
 import { useParams } from 'react-router-dom';
 import { Film } from '../../entities/Film';
+import { api } from '../../shared/api';
 
 export function useFilmData() {
   const { id } = useParams();
   const { isLoading, error, data } = useQuery<Film>({
     queryKey: ['film', id],
-    queryFn: () => fetch(`https://swapi.dev/api/films/${id}`).then(
-      (res) => res.json(),
-    ),
+    queryFn: () => api.getFilm(id),
   });
-  if (!id) {
-    return { isLoading: false, error: new Error('Should have an id') };
-  }
   return { isLoading, error, data };
 }

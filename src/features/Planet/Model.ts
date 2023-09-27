@@ -4,14 +4,13 @@ import {
 
 import { useParams } from 'react-router-dom';
 import { Planet } from '../../entities/Planet';
+import { api } from '../../shared/api';
 
 export function usePlanetData() {
   const { id } = useParams();
   const { isLoading, error, data } = useQuery<Planet>({
     queryKey: ['planet', id],
-    queryFn: () => fetch(`https://swapi.dev/api/planets/${id}`).then(
-      (res) => res.json(),
-    ),
+    queryFn: () => api.getPlanet(id),
   });
   if (!id) {
     return { isLoading: false, error: new Error('Should have an id') };
