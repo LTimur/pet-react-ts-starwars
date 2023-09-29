@@ -8,7 +8,7 @@ import { CharacterCard } from '../features/Character/Ui';
 import { MainLayout } from '../components/MainLayout';
 import { PATH_PAGE } from '../shared/lib/react-router/Paths';
 
-export function RoutesComponent() {
+export function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
