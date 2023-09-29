@@ -32,7 +32,7 @@ export function FilmsUi() {
   const filmsFiltered = useFilter<Film[]>(films ?? [], filter);
 
   return (
-    <Paper shadow="xl" p="xl" pos="relative">
+    <Paper shadow="xl" withBorder p="xl" pos="relative">
       <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
       <Filter onChange={setFilter} />
       <FilmsList

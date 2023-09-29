@@ -32,7 +32,7 @@ export function PlanetsUi() {
   const planetsFiltered = useFilter<Planet[]>(planets ?? [], filter);
 
   return (
-    <Paper shadow="xl" p="xl">
+    <Paper shadow="xl" withBorder p="xl">
       <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
       <Filter onChange={setFilter} />
       <PlanetList

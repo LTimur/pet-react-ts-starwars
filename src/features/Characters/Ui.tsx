@@ -32,7 +32,7 @@ export function CharactersUi() {
   const charactersFiltered = useFilter<Character[]>(characters ?? [], filter);
 
   return (
-    <Paper shadow="xl" p="xl">
+    <Paper shadow="xl" withBorder p="xl">
       <Filter onChange={setFilter} />
       <LoadingOverlay visible={isLoading} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
       <CharactersList characters={charactersFiltered} />
