@@ -7,12 +7,14 @@ import { CharactersUi } from '../features/Characters/Ui';
 import { CharacterCard } from '../features/Character/Ui';
 import { MainLayout } from '../components/MainLayout';
 import { PATH_PAGE } from '../shared/lib/react-router/Paths';
+import { About } from '../features/About/Ui';
 
 export function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path={PATH_PAGE.mainLayout} element={<MainLayout />}>
+          <Route path={PATH_PAGE.mainLayout} element={<About />} />
           <Route path={PATH_PAGE.films} element={<FilmsUi />} />
           <Route path={PATH_PAGE.filmCard} element={<FilmCard />} />
           <Route path={PATH_PAGE.characters} element={<CharactersUi />} />
